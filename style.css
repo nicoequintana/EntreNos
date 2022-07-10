@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gameContainer{
+    width: 90%;
+    margin: 2rem auto;
+    padding: 50px;
+    background-image: url(./Abstract-Wallpaper-4K-Wallpaper-Aesthetic.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px black;
+    border: 2px solid whitesmoke;
+
+
+}
+/*! ===========button para sumar amigos a la partida============== */
+.addFriends{
+    width: 160px;
+    height: 40px;
+    padding: 0 8px;
+    position: relative;
+    background-color: rgba(134, 134, 134, 0.374);
+    backdrop-filter: blur(8px);
+    border: 2px solid whitesmoke;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all ease-in-out .4s;
+}
+
+.addFriends span{
+    border: 2px solid white;
+    width: 37px;
+    height: 38px;
+    border-radius: 50%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background: rgb(255, 255, 255);
+    color: black;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out .2s;
+    font-size: 2rem;
+}
+
+.addFriends p{
+    text-align: right;
+    font-weight: 600;
+    color: white;
+}
+
+.addFriends:hover {
+    background-color: rgba(29, 26, 208, 0.418);
+}
+
+.addFriends:hover span {
+    background-color: rgba(29, 26, 208, 0.626);
+    color: rgb(143, 218, 255);
+}
+
+
+
+/*! =================jugadores================= */
+.players{
+    width: 100%;
+    min-height: 10px;
+    height: 100px;
+    padding: 15px;
+    margin: 2rem auto;
+    border-radius: 5px;
+    color: black;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.playerName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid pink;
+    padding: 5px;
+    background-color: #141DD9;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+
+.playerName:hover{
+    background-color: #05AFF2;
+    box-shadow: -8px 8px 10px rgb(75, 75, 75);
+    transform: scale(1.08) translate(2px, -2px);
+}
+
+
+/*! =================catergorias================= */
+
+.categoriesContainer{
+    width: 100%;
+    padding: 15px;
+    margin: 2rem auto;
+    border-radius: 5px;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.categoryBox{
+    width: 20%;
+    min-width: 155px;
+    max-width: 210px;
+    margin: 10px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+
+    transition: all ease-in-out .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categoryBox:hover{
+    transform: scale(1.05) rotateY(45deg) rotateX(8deg);
+    box-shadow: -20px 12px 10px rgb(68, 68, 68);
+
+}
+
+.categoryBox p{
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.category1{
+    background-color: #141DD9;
+}
+.category2{
+    background-color: #027313;
+}
+.category3{
+    background-color: #D9A407;
+}
+.category4{
+    background-color: #F2421B;
+}
+
+/*! ===Round Box - muestra el nombre del jugador y la pregunta===  */
+
+.roundBox{
+    width: 100%;
+    padding: 15px;
+    margin: 2rem auto;
+    border-radius: 5px;
+    color: black;
+    text-align: center;
+    
+}
+
+.ActivePlayer{
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    border-radius: 2.5px;
+    margin-bottom: 2rem;
+}
+
+.categorySelect{
+    width: 100%;
+    margin-bottom: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+}
+
+.questionBox{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2.5px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+}
+
+.nextQuestion{
+    width: 20%;
+    margin: 1.5rem auto;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+    padding: 8px;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.nextQuestion:hover {
+    box-shadow: -8px 8px 10px rgb(34, 34, 34);
+    transform: scale(1.03);
+    transform: translate(2px, -2px);
+}
+
+.players, .categoriesContainer, .roundBox{
+    background-color: rgba(134, 134, 134, 0.374);
+    backdrop-filter: blur(8px);
+    border: 2px solid whitesmoke;
+}
