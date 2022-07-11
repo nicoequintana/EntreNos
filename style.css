@@ -20,7 +20,7 @@ img{
 .gameContainer{
     width: 90%;
     margin: 2rem auto;
-    padding: 50px;
+    padding: 20px;
     background-image: url(./Abstract-Wallpaper-4K-Wallpaper-Aesthetic.jpg);
     background-size: cover;
     background-position: center center;
@@ -31,6 +31,7 @@ img{
 
 
 }
+
 /*! ===========button para sumar amigos a la partida============== */
 .addFriends{
     width: 160px;
@@ -78,8 +79,6 @@ img{
     color: rgb(143, 218, 255);
 }
 
-
-
 /*! =================jugadores================= */
 .players{
     width: 100%;
@@ -111,16 +110,13 @@ img{
     cursor: pointer;
 }
 
-
 .playerName:hover{
     background-color: #05AFF2;
     box-shadow: -8px 8px 10px rgb(75, 75, 75);
     transform: scale(1.08) translate(2px, -2px);
 }
 
-
 /*! =================catergorias================= */
-
 .categoriesContainer{
     width: 100%;
     padding: 15px;
@@ -166,18 +162,20 @@ img{
 .category1{
     background-color: #141DD9;
 }
+
 .category2{
     background-color: #027313;
 }
+
 .category3{
     background-color: #D9A407;
 }
+
 .category4{
     background-color: #F2421B;
 }
 
 /*! ===Round Box - muestra el nombre del jugador y la pregunta===  */
-
 .roundBox{
     width: 100%;
     padding: 15px;
@@ -210,7 +208,7 @@ img{
 .questionBox{
     width: 100%;
     padding: 10px;
-    border: 1px solid black;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 2.5px;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -239,7 +237,71 @@ img{
 }
 
 .players, .categoriesContainer, .roundBox{
-    background-color: rgba(134, 134, 134, 0.374);
-    backdrop-filter: blur(8px);
+    background-color: rgba(134, 134, 134, 0.238);
+    backdrop-filter: blur(15px);
     border: 2px solid whitesmoke;
+}
+
+/** ============MEDIA QUERIES=====================*/
+
+@media only screen and (max-width: 478px) {
+/*! =================catergorias================= */
+    .categoriesContainer{
+        width: 100%;
+        padding:0;
+        margin: 0;
+    
+    }
+    
+    .categoryBox{
+        width: 40%;
+        min-width: 50px;
+        max-width: 180px;
+        margin: 10px;
+        height: 100px;
+    }
+
+    .categoryBox p{
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
+/*! =================jugadores================= */
+    .players{
+        width: 100%;
+        min-height: 10px;
+        height: auto;
+        padding: 15px;
+        margin: 2rem auto;
+        border-radius: 5px;
+        color: black;
+    
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .playerName {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 10px;
+        margin: 5px;
+
+    }
+/*! =================Boton next question================= */
+    .nextQuestion{
+        width: 100%;
+        margin: 1rem auto;
+        text-align: center;
+        font-weight: 600;
+        border: 1px solid whitesmoke;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        transition: all ease-in-out .3s;
+    }
 }

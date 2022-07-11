@@ -1,4 +1,4 @@
-
+'use strict';
 
 //! =====CLASES=====
 class Player {
@@ -7,7 +7,6 @@ class Player {
         this.name = name;
     }
 }
-
 
 //! =====Selectores del DOM=====
 let btnAddFriends = document.querySelector('#btnAddFriends');
@@ -21,8 +20,11 @@ let questionBox = document.querySelector('.questionBox');
 let categorySelect = document.querySelector('.categorySelect');
 
 //! =====ARRAYS=====
+let nextQuestionValidation = true;
+let round = 0;
+
+//! =====ARRAYS=====
 const players = [];
-const categories = [];
 const cat1 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
 const cat2 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
 const cat3 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
@@ -94,87 +96,122 @@ function deletePlayer (id) {
 
 //* Funcion para imprimir preguntas category 1
 function printCat1 () {
-    console.log('entro funcion printCat1');
-    let questionRandom = Math.floor(Math.random() * cat1.length);
-    
-    let p = document.createElement('p');
-    p.textContent = cat1[questionRandom];
-    
-    let pCat = document.createElement('p');
-    pCat.textContent = 'Categoria 1';
 
-    let nextQuestion = document.createElement('button');
-    nextQuestion.setAttribute('class', 'nextQuestion');
-    nextQuestion.setAttribute('type', 'submit');
-    nextQuestion.setAttribute('onClick', 'reloadPage()');
-    nextQuestion.textContent = 'Siguiente pregunta';
+    if (nextQuestionValidation == true) {
+        console.log('entro funcion printCat1');
+        let questionRandom = Math.floor(Math.random() * cat1.length);
+        
+        let p = document.createElement('p');
+        p.textContent = cat1[questionRandom];
+        
+        let pCat = document.createElement('p');
+        pCat.textContent = 'Categoria 1';
+    
+        let nextQuestion = document.createElement('button');
+        nextQuestion.setAttribute('class', 'nextQuestion');
+        nextQuestion.setAttribute('type', 'submit');
+        nextQuestion.setAttribute('onClick', 'reloadPage()');
+        nextQuestion.textContent = 'Siguiente pregunta';
+    
+        categorySelect.appendChild(pCat);
+        questionBox.appendChild(p);
+        questionBox.appendChild(nextQuestion);
 
-    categorySelect.appendChild(pCat);
-    questionBox.appendChild(p);
-    questionBox.appendChild(nextQuestion);
+        nextQuestionValidation = false;
+    } else {
+        alert('Para continuar, presiona el boton "Siguiente pregunta"')
+    }
+    
 }
+
 //* Funcion para imprimir preguntas category 2
 function printCat2 () {
-    console.log('entro funcion printCat2');
-    let questionRandom = Math.floor(Math.random() * cat2.length);
 
-    let p = document.createElement('p');
-    p.textContent = cat2[questionRandom];
+    if (nextQuestionValidation == true) {
+        console.log('entro funcion printCat2');
+        let questionRandom = Math.floor(Math.random() * cat2.length);
     
-    let pCat = document.createElement('p');
-    pCat.textContent = 'Categoria 2';
-
-    let nextQuestion = document.createElement('button');
-    nextQuestion.setAttribute('class', 'nextQuestion');
-    nextQuestion.setAttribute('type', 'submit');
-    nextQuestion.setAttribute('onClick', 'reloadPage()');
-    nextQuestion.textContent = 'Siguiente pregunta';
-
-    categorySelect.appendChild(pCat);
-    questionBox.appendChild(p);
-    questionBox.appendChild(nextQuestion);
+        let p = document.createElement('p');
+        p.textContent = cat2[questionRandom];
+        
+        let pCat = document.createElement('p');
+        pCat.textContent = 'Categoria 2';
+    
+        let nextQuestion = document.createElement('button');
+        nextQuestion.setAttribute('class', 'nextQuestion');
+        nextQuestion.setAttribute('type', 'submit');
+        nextQuestion.setAttribute('onClick', 'reloadPage()');
+        nextQuestion.textContent = 'Siguiente pregunta';
+    
+        categorySelect.appendChild(pCat);
+        questionBox.appendChild(p);
+        questionBox.appendChild(nextQuestion);
+        
+        nextQuestionValidation = false;
+    } else {
+        alert('Para continuar, presiona el boton "Siguiente pregunta"')
+    }
+    
 }
+
 //* Funcion para imprimir preguntas category 3
 function printCat3 () {
-    console.log('entro funcion printCat3');
-    let questionRandom = Math.floor(Math.random() * cat3.length);
 
-    let p = document.createElement('p');
-    p.textContent = cat3[questionRandom];
+    if (nextQuestionValidation == true) {
+        console.log('entro funcion printCat3');
+        let questionRandom = Math.floor(Math.random() * cat3.length);
     
-    let pCat = document.createElement('p');
-    pCat.textContent = 'Categoria 3';
+        let p = document.createElement('p');
+        p.textContent = cat3[questionRandom];
+        
+        let pCat = document.createElement('p');
+        pCat.textContent = 'Categoria 3';
+    
+        let nextQuestion = document.createElement('button');
+        nextQuestion.setAttribute('class', 'nextQuestion');
+        nextQuestion.setAttribute('type', 'submit');
+        nextQuestion.setAttribute('onClick', 'reloadPage()');
+        nextQuestion.textContent = 'Siguiente pregunta';
+    
+        categorySelect.appendChild(pCat);
+        questionBox.appendChild(p);
+        questionBox.appendChild(nextQuestion);
 
-    let nextQuestion = document.createElement('button');
-    nextQuestion.setAttribute('class', 'nextQuestion');
-    nextQuestion.setAttribute('type', 'submit');
-    nextQuestion.setAttribute('onClick', 'reloadPage()');
-    nextQuestion.textContent = 'Siguiente pregunta';
-
-    categorySelect.appendChild(pCat);
-    questionBox.appendChild(p);
-    questionBox.appendChild(nextQuestion);
+        nextQuestionValidation = false;
+    } else {
+        alert('Para continuar, presiona el boton "Siguiente pregunta"')
+    }
+    
 }
+
 //* Funcion para imprimir preguntas category 4
 function printCat4 () {
-    console.log('entro funcion printCat4');
-    let questionRandom = Math.floor(Math.random() * cat4.length);
 
-    let p = document.createElement('p');
-    p.textContent = cat4[questionRandom];
+    if (nextQuestionValidation == true) {
+        console.log('entro funcion printCat4');
+        let questionRandom = Math.floor(Math.random() * cat4.length);
     
-    let pCat = document.createElement('p');
-    pCat.textContent = 'Categoria 4';
+        let p = document.createElement('p');
+        p.textContent = cat4[questionRandom];
+        
+        let pCat = document.createElement('p');
+        pCat.textContent = 'Categoria 4';
+    
+        let nextQuestion = document.createElement('button');
+        nextQuestion.setAttribute('class', 'nextQuestion');
+        nextQuestion.setAttribute('type', 'submit');
+        nextQuestion.setAttribute('onClick', 'reloadPage()');
+        nextQuestion.textContent = 'Siguiente pregunta';
+    
+        categorySelect.appendChild(pCat);
+        questionBox.appendChild(p);
+        questionBox.appendChild(nextQuestion);
 
-    let nextQuestion = document.createElement('button');
-    nextQuestion.setAttribute('class', 'nextQuestion');
-    nextQuestion.setAttribute('type', 'submit');
-    nextQuestion.setAttribute('onClick', 'reloadPage()');
-    nextQuestion.textContent = 'Siguiente pregunta';
-
-    categorySelect.appendChild(pCat);
-    questionBox.appendChild(p);
-    questionBox.appendChild(nextQuestion);
+        nextQuestionValidation = false;
+    } else {
+        alert('Para continuar, presiona el boton "Siguiente pregunta"')    
+    }
+    
 }
 
 //* Funcion para recargar pagina y dejar el campo de pregunta vacio para que el usuario pueda elegir nuevamente una categoria
@@ -188,5 +225,6 @@ category1.addEventListener('click', printCat1);
 category2.addEventListener('click', printCat2);
 category3.addEventListener('click', printCat3);
 category4.addEventListener('click', printCat4);
+
 //! =====LOGICA=====
 printPlayers();
