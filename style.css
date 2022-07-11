@@ -70,15 +70,6 @@ img{
     color: white;
 }
 
-.addFriends:hover {
-    background-color: rgba(29, 26, 208, 0.418);
-}
-
-.addFriends:hover span {
-    background-color: rgba(29, 26, 208, 0.626);
-    color: rgb(143, 218, 255);
-}
-
 /*! =================jugadores================= */
 .players{
     width: 100%;
@@ -110,12 +101,6 @@ img{
     cursor: pointer;
 }
 
-.playerName:hover{
-    background-color: #05AFF2;
-    box-shadow: -8px 8px 10px rgb(75, 75, 75);
-    transform: scale(1.08) translate(2px, -2px);
-}
-
 /*! =================catergorias================= */
 .categoriesContainer{
     width: 100%;
@@ -145,12 +130,6 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.categoryBox:hover{
-    transform: scale(1.05) rotateY(45deg) rotateX(8deg);
-    box-shadow: -20px 12px 10px rgb(68, 68, 68);
-
 }
 
 .categoryBox p{
@@ -230,12 +209,6 @@ img{
     transition: all ease-in-out .3s;
 }
 
-.nextQuestion:hover {
-    box-shadow: -8px 8px 10px rgb(34, 34, 34);
-    transform: scale(1.03);
-    transform: translate(2px, -2px);
-}
-
 .players, .categoriesContainer, .roundBox{
     background-color: rgba(134, 134, 134, 0.238);
     backdrop-filter: blur(15px);
@@ -243,6 +216,34 @@ img{
 }
 
 /** ============MEDIA QUERIES=====================*/
+
+@media only screen and (min-width: 768px) {
+    .addFriends:hover {
+        background-color: rgba(29, 26, 208, 0.418);
+    }
+    
+    .addFriends:hover span {
+        background-color: rgba(29, 26, 208, 0.626);
+        color: rgb(143, 218, 255);
+    }
+
+    .playerName:hover{
+        background-color: #05AFF2;
+        box-shadow: -8px 8px 10px rgb(75, 75, 75);
+        transform: scale(1.08) translate(2px, -2px);
+    }
+
+    .categoryBox:hover{
+        transform: scale(1.05) rotateY(45deg) rotateX(8deg);
+        box-shadow: -20px 12px 10px rgb(68, 68, 68);
+    }
+
+    .nextQuestion:hover {
+        box-shadow: -8px 8px 10px rgb(34, 34, 34);
+        transform: scale(1.03);
+        transform: translate(2px, -2px);
+    }
+}
 
 @media only screen and (max-width: 478px) {
 /*! =================catergorias================= */
