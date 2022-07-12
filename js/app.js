@@ -21,7 +21,7 @@ let categorySelect = document.querySelector('.categorySelect');
 let addPlayersContainer = document.querySelector('.addPlayersContainer');
 let playerNumer = document.querySelector('#playerNumber')
 let btnLoadPlayer = document.querySelector('#btnLoadPlayer');
-
+let alertNextQuestion = document.querySelector('.alertNextQuestion');
 
 
 //! =====ARRAYS=====
@@ -30,10 +30,10 @@ let round = 0;
 
 //! =====ARRAYS=====
 const players = [];
-const cat1 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
-const cat2 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
-const cat3 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
-const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
+const cat1 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 'pregunta 6', 'pregunta 7', 'pregunta 8', 'pregunta 9', 'pregunta 10'];
+const cat2 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 'pregunta 6', 'pregunta 7', 'pregunta 8', 'pregunta 9', 'pregunta 10'];
+const cat3 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 'pregunta 6', 'pregunta 7', 'pregunta 8', 'pregunta 9', 'pregunta 10'];
+const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 'pregunta 6', 'pregunta 7', 'pregunta 8', 'pregunta 9', 'pregunta 10'];
 
 //! =====FUNCIONES=====
 //* Funcion para agregar jugadores
@@ -131,7 +131,7 @@ function printCat1 () {
 
         nextQuestionValidation = false;
     } else {
-        alert('Para continuar, presiona el boton "Siguiente pregunta"')
+        alertNextQuestion.classList.toggle('displayAlertNextQuestion');
     }
     
 }
@@ -161,7 +161,7 @@ function printCat2 () {
         
         nextQuestionValidation = false;
     } else {
-        alert('Para continuar, presiona el boton "Siguiente pregunta"')
+        alertNextQuestion.classList.toggle('displayAlertNextQuestion');
     }
     
 }
@@ -191,7 +191,7 @@ function printCat3 () {
 
         nextQuestionValidation = false;
     } else {
-        alert('Para continuar, presiona el boton "Siguiente pregunta"')
+        alertNextQuestion.classList.toggle('displayAlertNextQuestion');
     }
     
 }
@@ -221,7 +221,7 @@ function printCat4 () {
 
         nextQuestionValidation = false;
     } else {
-        alert('Para continuar, presiona el boton "Siguiente pregunta"')    
+        alertNextQuestion.classList.toggle('displayAlertNextQuestion');  
     }
     
 }
@@ -238,6 +238,7 @@ category1.addEventListener('click', printCat1);
 category2.addEventListener('click', printCat2);
 category3.addEventListener('click', printCat3);
 category4.addEventListener('click', printCat4);
+alertNextQuestion.addEventListener('click', reloadPage);
 
 //! =====LOGICA=====
 printPlayers();
