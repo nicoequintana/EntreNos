@@ -19,7 +19,7 @@ let category4 = document.querySelector('#category4');
 let questionBox = document.querySelector('.questionBox');
 let categorySelect = document.querySelector('.categorySelect');
 let addPlayersContainer = document.querySelector('.addPlayersContainer');
-let playerNumer = document.querySelector('.playerNumber')
+let playerNumer = document.querySelector('#playerNumber')
 let btnLoadPlayer = document.querySelector('#btnLoadPlayer');
 
 
@@ -40,35 +40,33 @@ const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
 function addPlayer (e) {
     //e.preventDefault();
     addPlayersContainer.classList.toggle('displayAddPlayerContainer');
-
-     console.log('entro la funcion addPlayer')
-
-
-    
-
+    console.log('entro la funcion addPlayer')
+    if (JSON.parse(localStorage.getItem('usuarios')) == null) {
+        playerNumer.textContent = players.length;
+    } else {
+        let playersNumbers = JSON.parse(localStorage.getItem('usuarios'));
+        playerNumer.textContent = playersNumbers.length + 1;
+    }
 }
 
+//* Funcion para cargar y guardar jugadores
 function loadPlayer () {
-
     let inputPlayerName = document.querySelector('#name').value;
-
     let validacionLocalStorageJugadores = JSON.parse(localStorage.getItem('usuarios'));
-
     if(validacionLocalStorageJugadores == null) {
-        console.log('local null')
-        let newPlayer = new Player(players.length, inputPlayerName);
+        console.log('players.length')
+        playerNumer.textContent = players.length;
+        let newPlayer = new Player(players.length, `${inputPlayerName}  X`);
         players.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(players));
-
     } else {
         console.log('local with information')
         localStorage.clear();
-        let newPlayer = new Player(validacionLocalStorageJugadores.length, inputPlayerName);
+        playerNumer.textContent = validacionLocalStorageJugadores.length + 1;
+        let newPlayer = new Player(validacionLocalStorageJugadores.length, `${inputPlayerName}  X`);
         validacionLocalStorageJugadores.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(validacionLocalStorageJugadores));
-
     }
-
     location.reload();
 }
 
