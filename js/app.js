@@ -18,6 +18,11 @@ let category3 = document.querySelector('#category3');
 let category4 = document.querySelector('#category4');
 let questionBox = document.querySelector('.questionBox');
 let categorySelect = document.querySelector('.categorySelect');
+let addPlayersContainer = document.querySelector('.addPlayersContainer');
+let playerNumer = document.querySelector('.playerNumber')
+let btnLoadPlayer = document.querySelector('#btnLoadPlayer');
+
+
 
 //! =====ARRAYS=====
 let nextQuestionValidation = true;
@@ -34,28 +39,37 @@ const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3'];
 //* Funcion para agregar jugadores
 function addPlayer (e) {
     //e.preventDefault();
-    console.log('entro la funcion addPlayer')
-    let player = prompt('Ingrese el nombre del jugador');
+    addPlayersContainer.classList.toggle('displayAddPlayerContainer');
+
+     console.log('entro la funcion addPlayer')
+
+
+    
+
+}
+
+function loadPlayer () {
+
+    let inputPlayerName = document.querySelector('#name').value;
 
     let validacionLocalStorageJugadores = JSON.parse(localStorage.getItem('usuarios'));
 
     if(validacionLocalStorageJugadores == null) {
         console.log('local null')
-        let newPlayer = new Player(players.length, player);
+        let newPlayer = new Player(players.length, inputPlayerName);
         players.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(players));
 
     } else {
         console.log('local with information')
         localStorage.clear();
-        let newPlayer = new Player(validacionLocalStorageJugadores.length, player);
+        let newPlayer = new Player(validacionLocalStorageJugadores.length, inputPlayerName);
         validacionLocalStorageJugadores.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(validacionLocalStorageJugadores));
 
     }
 
     location.reload();
-
 }
 
 //* Funcion para imprimir jugadores cargados
@@ -221,6 +235,7 @@ function reloadPage() {
 
 //! =====EVENTOS=====
 btnAddFriends.addEventListener('click', addPlayer);
+btnLoadPlayer.addEventListener('click', loadPlayer);
 category1.addEventListener('click', printCat1);
 category2.addEventListener('click', printCat2);
 category3.addEventListener('click', printCat3);
