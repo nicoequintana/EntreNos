@@ -331,6 +331,16 @@ img{
     font-size: 1.5rem;
 }
 
+/*! =========== FOOTER Y COPYRIGHT ============== */
+footer{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+}
+
+
 /** ============MEDIA QUERIES=====================*/
 
 @media only screen and (min-width: 768px) {
