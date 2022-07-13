@@ -12,10 +12,12 @@ class Player {
 let btnAddFriends = document.querySelector('#btnAddFriends');
 let playersAdded = document.querySelector('#playersAdded');
 let playerName = document.querySelector('.playerName');
+let ActivePlayer = document.querySelector('.ActivePlayer');
 let category1 = document.querySelector('#category1');
 let category2 = document.querySelector('#category2');
 let category3 = document.querySelector('#category3');
 let category4 = document.querySelector('#category4');
+let roundBox = document.querySelector('.roundBox');
 let questionBox = document.querySelector('.questionBox');
 let categorySelect = document.querySelector('.categorySelect');
 let addPlayersContainer = document.querySelector('.addPlayersContainer');
@@ -56,14 +58,14 @@ function loadPlayer () {
     if(validacionLocalStorageJugadores == null) {
         console.log('players.length')
         playerNumer.textContent = players.length;
-        let newPlayer = new Player(players.length, `${inputPlayerName}  X`);
+        let newPlayer = new Player(players.length, `${inputPlayerName} ⊗`);
         players.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(players));
     } else {
         console.log('local with information')
         localStorage.clear();
         playerNumer.textContent = validacionLocalStorageJugadores.length + 1;
-        let newPlayer = new Player(validacionLocalStorageJugadores.length, `${inputPlayerName}  X`);
+        let newPlayer = new Player(validacionLocalStorageJugadores.length, `${inputPlayerName} ⊗`);
         validacionLocalStorageJugadores.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(validacionLocalStorageJugadores));
     }
@@ -108,39 +110,40 @@ function deletePlayer (id) {
 
 //* Funcion para imprimir preguntas category 1
 function printCat1 () {
+    roundBox.classList.toggle('roundBoxDisplay');
+    console.log('entro funcion printCat1');
+    
+    let questionRandom = Math.floor(Math.random() * cat1.length);
+    
+    let p = document.createElement('p');
+    p.textContent = cat1[questionRandom];
+    
+    let pCat = document.createElement('p');
+    pCat.textContent = 'Categoria 1';
 
+    let nextQuestion = document.createElement('button');
+    nextQuestion.setAttribute('class', 'nextQuestion');
+    nextQuestion.setAttribute('type', 'submit');
+    nextQuestion.setAttribute('onClick', 'reloadPage()');
+    nextQuestion.textContent = 'Siguiente pregunta';
+
+    categorySelect.appendChild(pCat);
+    questionBox.appendChild(p);
+    questionBox.appendChild(nextQuestion);
+
+    /*
     if (nextQuestionValidation == true) {
-        console.log('entro funcion printCat1');
-        let questionRandom = Math.floor(Math.random() * cat1.length);
-        
-        let p = document.createElement('p');
-        p.textContent = cat1[questionRandom];
-        
-        let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 1';
-    
-        let nextQuestion = document.createElement('button');
-        nextQuestion.setAttribute('class', 'nextQuestion');
-        nextQuestion.setAttribute('type', 'submit');
-        nextQuestion.setAttribute('onClick', 'reloadPage()');
-        nextQuestion.textContent = 'Siguiente pregunta';
-    
-        categorySelect.appendChild(pCat);
-        questionBox.appendChild(p);
-        questionBox.appendChild(nextQuestion);
-
         nextQuestionValidation = false;
     } else {
         alertNextQuestion.classList.toggle('displayAlertNextQuestion');
     }
-    
+    */
 }
 
 //* Funcion para imprimir preguntas category 2
 function printCat2 () {
-
-    if (nextQuestionValidation == true) {
-        console.log('entro funcion printCat2');
+    roundBox.classList.toggle('roundBoxDisplay');
+    console.log('entro funcion printCat2');
         let questionRandom = Math.floor(Math.random() * cat2.length);
     
         let p = document.createElement('p');
@@ -158,19 +161,19 @@ function printCat2 () {
         categorySelect.appendChild(pCat);
         questionBox.appendChild(p);
         questionBox.appendChild(nextQuestion);
-        
+        /*
+    if (nextQuestionValidation == true) {
         nextQuestionValidation = false;
     } else {
         alertNextQuestion.classList.toggle('displayAlertNextQuestion');
     }
-    
+    */
 }
 
 //* Funcion para imprimir preguntas category 3
 function printCat3 () {
-
-    if (nextQuestionValidation == true) {
-        console.log('entro funcion printCat3');
+    roundBox.classList.toggle('roundBoxDisplay');
+    console.log('entro funcion printCat3');
         let questionRandom = Math.floor(Math.random() * cat3.length);
     
         let p = document.createElement('p');
@@ -188,19 +191,19 @@ function printCat3 () {
         categorySelect.appendChild(pCat);
         questionBox.appendChild(p);
         questionBox.appendChild(nextQuestion);
-
+    /*
+    if (nextQuestionValidation == true) {
         nextQuestionValidation = false;
     } else {
         alertNextQuestion.classList.toggle('displayAlertNextQuestion');
     }
-    
+    */
 }
 
 //* Funcion para imprimir preguntas category 4
 function printCat4 () {
-
-    if (nextQuestionValidation == true) {
-        console.log('entro funcion printCat4');
+    roundBox.classList.toggle('roundBoxDisplay');
+    console.log('entro funcion printCat4');
         let questionRandom = Math.floor(Math.random() * cat4.length);
     
         let p = document.createElement('p');
@@ -218,12 +221,13 @@ function printCat4 () {
         categorySelect.appendChild(pCat);
         questionBox.appendChild(p);
         questionBox.appendChild(nextQuestion);
-
+        /*
+    if (nextQuestionValidation == true) {
         nextQuestionValidation = false;
     } else {
         alertNextQuestion.classList.toggle('displayAlertNextQuestion');  
     }
-    
+    */
 }
 
 //* Funcion para recargar pagina y dejar el campo de pregunta vacio para que el usuario pueda elegir nuevamente una categoria
