@@ -24,8 +24,7 @@ let addPlayersContainer = document.querySelector('.addPlayersContainer');
 let playerNumer = document.querySelector('#playerNumber')
 let btnLoadPlayer = document.querySelector('#btnLoadPlayer');
 let alertNextQuestion = document.querySelector('.alertNextQuestion');
-let btnStart = document.querySelector('#btnStart');
-let loader = document.querySelector('#loader');
+
 
 //! =====ARRAYS=====
 let nextQuestionValidation = true;
@@ -40,10 +39,14 @@ const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 
 
 //! =====FUNCIONES=====
 //* Funcion para el loader
+window.onload = loaderOn()
 function loaderOn() {
     console.log('entro la funcion loaderOn')
     loader.classList.toggle('loaderOff');
+    alert('iniciara el juego')
 }
+
+
 
 //* Funcion para agregar jugadores
 function addPlayer (e) {
@@ -243,7 +246,7 @@ function reloadPage() {
 }
 
 //! =====EVENTOS=====
-btnStart.addEventListener('click', loaderOn);
+//btnStart.addEventListener('click', loaderOn);
 btnAddFriends.addEventListener('click', addPlayer);
 btnLoadPlayer.addEventListener('click', loadPlayer);
 category1.addEventListener('click', printCat1);

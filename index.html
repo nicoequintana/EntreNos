@@ -1,130 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- NUNITO FONT FROM GOOGLE FONT -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,900;1,300;1,400;1,600;1,900&display=swap"
-        rel="stylesheet">
-    <!-- NORMALIZE CSS -->
-    <link rel="stylesheet" href="./css/normalize.css">
-    <!-- HOJA DE ESTILOS CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-    <title>EntreNOS || El juego para hablar con tus amigos</title>
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- NUNITO FONT FROM GOOGLE FONT -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,900;1,300;1,400;1,600;1,900&display=swap"
+            rel="stylesheet">
+        <!-- NORMALIZE CSS -->
+        <link rel="stylesheet" href="./css/normalize.css">
+        <!-- HOJA DE ESTILOS CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+        <title>EntreNOS || El juego para hablar con tus amigos</title>
+    </head>
 <body>
-    <!-- LOADER -->
-    <div class="loaderDisplay" id="loader">
-        <div class="tittleContainer">
-            <h1>EntreNOS</h1>
-            <h2>El juego para hablar y conocer mas sobre tus amigos!</h2>
-        </div>
-        <div class="rulesContainer">
-            <p>
-                <strong>EntreNOS</strong> es un juego muy simple.
-            </p>
-            <p>
-                Lo primero que tenes que saber, es que no hay un limite en la cantidad de amigos que pueden jugar.
-            </p>
-            <p>
-                Cuando ingreses, primero suma a tus amigos y luego, por ronda, cada uno debera elegir una de las cuatro categorias disponibles.
-            </p>
-            <p>
-                Se abrira una ventana donde veras la categoria seleccionada y una pregunta o topico que debes responder.
-            </p>
-            <p>
-                <strong>NADIE GANA, NADIE PIERDE, NO SE SUMAN PUNTOS</strong>
-                <br>
-                (Pero libremente pueden incluir alguna prenda si el jugador no quiere responder 😜)
-            </p>
-
-            <button type="button" class="btnStart" id="btnStart">COMENZAR</button>
-        </div>
-        
+    
+ <!-- LOADER -->
+ <div class="loaderDisplay" id="loader">
+    <div class="tittleContainer">
+        <h1>EntreNOS</h1>
+        <h2>El juego para hablar y conocer mas sobre tus amigos!</h2>
     </div>
+    <div class="rulesContainer">
+        <p>
+            <strong>EntreNOS</strong> es un juego muy simple.
+        </p>
+        <p>
+            Lo primero que tenes que saber, es que no hay un limite en la cantidad de amigos que pueden jugar.
+        </p>
+        <p>
+            Cuando ingreses, primero suma a tus amigos y luego, por ronda, cada uno debera elegir una de las cuatro categorias disponibles.
+        </p>
+        <p>
+            Se abrira una ventana donde veras la categoria seleccionada y una pregunta o topico que debes responder.
+        </p>
+        <p>
+            <strong>NADIE GANA, NADIE PIERDE, NO SE SUMAN PUNTOS</strong>
+            <br>
+            (Pero libremente pueden incluir alguna prenda si el jugador no quiere responder 😜)
+        </p>
 
-    <div class="gameContainer">
-        <button type="submit" class="addFriends" id="btnAddFriends">
-            <span>+</span>
-            <p>Agregar Amigos</p>
-        </button>
-
-        <div class="players" id="playersAdded"></div>
-
-        <div class="categoriesContainer">
-
-            <div class="categoryBox category1" id="category1" value="cat1">
-                <p>
-                    PERSPECTIVA
-                </p>
-            </div>
-            <div class="categoryBox category2" id="category2" value="cat2">
-                <p>
-                    PRESENTACIÓN
-                </p>
-            </div>
-            <div class="categoryBox category3" id="category3" value="cat3">
-                <p>
-                    PROFUNDIDAD
-                </p>
-            </div>
-            <div class="categoryBox category4" id="category4" value="cat4">
-                <p>
-                    DESCOMPRIMIR
-                </p>
-            </div>
-
-        </div>
-
-
-
-        <div class="alertNextQuestion">
-            <p>
-                Para continuar, presiona el boton "Siguiente Pregunta" o presiona este cartel
-            </p>
-        </div>
-
-
-    </div>
-
-    <div class="addPlayersContainer">
-        <div class="addPlayersFormContainer">
-            <span id="playerNumber"></span>
-            <form action="" id="formAddPlayer" class="formAddPlayer">
-                <label for="name" class="labelName">A quien vas a cargar?</label>
-                <input type="text" id="name" class="inputName" placeholder="Nombre del Jugador">
-            </form>
-            <button type="submit" id="btnLoadPlayer">Cargar Jugador</button>
-        </div>
+        <button type="button" class="btnStart" id="btnStart">COMENZAR</button>
     </div>
     
-    <div class="roundBox">
-
-        <div class="ActivePlayer">Player</div>
-
-        <div class="categorySelect"></div>
-
-        <div class="questionBox"></div>
-
-    </div>
-
-    <footer>
-        <p>
-            <strong>EntreNos</strong> es un juego pensado y desarrollado por Nicolás E. Quintana. <br> Todos los
-            derechos Reservados ®.
-            <br>
-            <strong>EntreNOS © 2022</strong>
-        </p>
-    </footer>
+</div>
 
 
-    <script src="./js/app.js"></script>
+    <script src="./js/start.js"></script>
 </body>
-
 </html>
