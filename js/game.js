@@ -38,15 +38,6 @@ const cat3 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 
 const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 'pregunta 6', 'pregunta 7', 'pregunta 8', 'pregunta 9', 'pregunta 10'];
 
 //! =====FUNCIONES=====
-//* Funcion para el loader
-window.onload = loaderOn()
-function loaderOn() {
-    console.log('entro la funcion loaderOn')
-    loader.classList.toggle('loaderOff');
-    alert('iniciara el juego')
-}
-
-
 
 //* Funcion para agregar jugadores
 function addPlayer (e) {

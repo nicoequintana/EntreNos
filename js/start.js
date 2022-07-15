@@ -6,7 +6,7 @@ let loader = document.querySelector('#loader');
 function loaderOn() {
     console.log('entro la funcion loaderOn')
     let url = '../gameEntreNOS.html';
-    window.open(url)
+    window.open(url, '_self');
 }
 
 //! =====EVENTOS=====
