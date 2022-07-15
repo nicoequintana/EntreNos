@@ -10,6 +10,7 @@ class Player {
 
 //! =====Selectores del DOM=====
 let btnAddFriends = document.querySelector('#btnAddFriends');
+let btnClose = document.querySelector('#close');
 let playersAdded = document.querySelector('#playersAdded');
 let playerName = document.querySelector('.playerName');
 let ActivePlayer = document.querySelector('.ActivePlayer');
@@ -27,7 +28,7 @@ let alertNextQuestion = document.querySelector('.alertNextQuestion');
 let btnStart = document.querySelector('#btnStart');
 let loader = document.querySelector('#loader');
 
-//! =====ARRAYS=====
+//! =====VARIABLES GLOBALES=====
 let nextQuestionValidation = true;
 let round = 0;
 
@@ -47,37 +48,46 @@ function addPlayer (e) {
     addPlayersContainer.classList.toggle('displayAddPlayerContainer');
     console.log('entro la funcion addPlayer')
     if (JSON.parse(localStorage.getItem('usuarios')) == null) {
-        playerNumer.textContent = players.length;
+        playerNumer.textContent = `${players.length + 1}`;
     } else {
         let playersNumbers = JSON.parse(localStorage.getItem('usuarios'));
         playerNumer.textContent = playersNumbers.length + 1;
     }
 }
 
+function close () {
+    addPlayersContainer.classList.toggle('displayAddPlayerContainer');
+}
+
 //* Funcion para cargar y guardar jugadores
 function loadPlayer () {
     let inputPlayerName = document.querySelector('#name').value;
+    
     let validacionLocalStorageJugadores = JSON.parse(localStorage.getItem('usuarios'));
-    if(validacionLocalStorageJugadores == null) {
-        console.log('players.length')
-        playerNumer.textContent = players.length;
-        let newPlayer = new Player(players.length, `${inputPlayerName} ⊗`);
-        players.push(newPlayer);
-        localStorage.setItem('usuarios', JSON.stringify(players));
-    } else {
+
+    if(validacionLocalStorageJugadores != null) {
         console.log('local with information')
         localStorage.clear();
         playerNumer.textContent = validacionLocalStorageJugadores.length + 1;
         let newPlayer = new Player(validacionLocalStorageJugadores.length, `${inputPlayerName} ⊗`);
         validacionLocalStorageJugadores.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(validacionLocalStorageJugadores));
+
+    } else {
+        console.log(`${players.length +1}`)
+        playerNumer.textContent = players.length + 1;
+        let newPlayer = new Player(players.length, `${inputPlayerName} ⊗`);
+        players.push(newPlayer);
+        localStorage.setItem('usuarios', JSON.stringify(players));
     }
+
     location.reload();
 }
 
 //* Funcion para imprimir jugadores cargados
 function printPlayers () {
     console.log('entro funcion printPlayers')
+    
     const activePlayers = JSON.parse(localStorage.getItem('usuarios'));
     console.log(activePlayers)
 
@@ -239,7 +249,7 @@ function reloadPage() {
 }
 
 //! =====EVENTOS=====
-//btnStart.addEventListener('click', startGame);
+btnClose.addEventListener('click', close);
 btnAddFriends.addEventListener('click', addPlayer);
 btnLoadPlayer.addEventListener('click', loadPlayer);
 category1.addEventListener('click', printCat1);
