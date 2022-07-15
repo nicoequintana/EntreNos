@@ -24,7 +24,8 @@ let addPlayersContainer = document.querySelector('.addPlayersContainer');
 let playerNumer = document.querySelector('#playerNumber')
 let btnLoadPlayer = document.querySelector('#btnLoadPlayer');
 let alertNextQuestion = document.querySelector('.alertNextQuestion');
-
+let btnStart = document.querySelector('#btnStart');
+let loader = document.querySelector('#loader');
 
 //! =====ARRAYS=====
 let nextQuestionValidation = true;
@@ -38,6 +39,7 @@ const cat3 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 
 const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 5', 'pregunta 6', 'pregunta 7', 'pregunta 8', 'pregunta 9', 'pregunta 10'];
 
 //! =====FUNCIONES=====
+
 
 //* Funcion para agregar jugadores
 function addPlayer (e) {
@@ -237,7 +239,7 @@ function reloadPage() {
 }
 
 //! =====EVENTOS=====
-//btnStart.addEventListener('click', loaderOn);
+//btnStart.addEventListener('click', startGame);
 btnAddFriends.addEventListener('click', addPlayer);
 btnLoadPlayer.addEventListener('click', loadPlayer);
 category1.addEventListener('click', printCat1);

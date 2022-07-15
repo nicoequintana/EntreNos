@@ -2,12 +2,12 @@
 let btnStart = document.querySelector('#btnStart');
 let loader = document.querySelector('#loader');
 
-//* Funcion para el loader presentacion
-function loaderOn() {
-    console.log('entro la funcion loaderOn')
-    let url = '../gameEntreNOS.html';
-    window.open(url, '_self');
+function startGame() {
+    console.log('entro funcion startGame')
+    location.href = 'game.html';
 }
 
+
+
 //! =====EVENTOS=====
-btnStart.addEventListener('click', loaderOn);
+btnStart.addEventListener('click', startGame);
