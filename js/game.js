@@ -208,6 +208,7 @@ function printCat1 () {
 function printCat2 () {
     roundBox.classList.toggle('roundBoxDisplay');
     roundNumber ()
+    currentPlayer ()
     console.log('entro funcion printCat2');
         let questionRandom = Math.floor(Math.random() * cat2.length);
     
@@ -232,7 +233,8 @@ function printCat2 () {
 //* Funcion para imprimir preguntas category 3
 function printCat3 () {
     roundBox.classList.toggle('roundBoxDisplay');
-    roundNumber ()
+    roundNumber ();
+    currentPlayer ();
     console.log('entro funcion printCat3');
         let questionRandom = Math.floor(Math.random() * cat3.length);
     
@@ -257,7 +259,8 @@ function printCat3 () {
 //* Funcion para imprimir preguntas category 4
 function printCat4 () {
     roundBox.classList.toggle('roundBoxDisplay');
-    roundNumber ()
+    roundNumber ();
+    currentPlayer ();
     console.log('entro funcion printCat4');
         let questionRandom = Math.floor(Math.random() * cat4.length);
     
