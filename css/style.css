@@ -228,6 +228,21 @@ header{
     align-items: center;
 }
 
+.btnClose{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    outline: 1px solid #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+    background-color: rgba(225, 23, 23, 0.568);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
 .addPlayersFormContainer{
     background-color: rgba(138, 138, 138, 0.199);
     height: 100%;

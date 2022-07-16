@@ -11,6 +11,7 @@ class Player {
 //! =====Selectores del DOM=====
 let btnAddFriends = document.querySelector('#btnAddFriends');
 let reloadRounds = document.querySelector('#reloadRounds');
+let btnClose = document.querySelector('#btnClose');
 let playersAdded = document.querySelector('#playersAdded');
 let playerName = document.querySelector('.playerName');
 let ActivePlayer = document.querySelector('.ActivePlayer');
@@ -33,6 +34,7 @@ let loader = document.querySelector('#loader');
 //! =====VARIABLES=====
 let nextQuestionValidation = true;
 let round = 0;
+//localStorage.setItem('round', round);
 let stateOfGame = false;
 
 //! =====ARRAYS=====
@@ -50,7 +52,7 @@ function addPlayer (e) {
     addPlayersContainer.classList.toggle('displayAddPlayerContainer');
     console.log('entro la funcion addPlayer')
     if (JSON.parse(localStorage.getItem('usuarios')) == null) {
-        playerNumer.textContent = players.length;
+        playerNumer.textContent = players.length + 1;
     } else {
         let playersNumbers = JSON.parse(localStorage.getItem('usuarios'));
         playerNumer.textContent = playersNumbers.length + 1;
@@ -76,6 +78,11 @@ function loadPlayer () {
         localStorage.setItem('usuarios', JSON.stringify(validacionLocalStorageJugadores));
     }
     location.reload();
+}
+
+//* Funcion del btn para cerrar addFriends
+function closeAddFriends () {
+    addPlayersContainer.classList.toggle('displayAddPlayerContainer');
 }
 
 //* Funcion para imprimir jugadores cargados
@@ -114,10 +121,66 @@ function deletePlayer (id) {
     location.reload();
 }
 
+//* Funcion para contar los rounds
+function roundNumber () {
+    
+    let newRound = localStorage.getItem('round');
+    if( newRound == null) {
+        round++;
+    console.log(round)
+    localStorage.setItem('round', round);
+    } else {
+        newRound ++;
+        console.log(newRound)
+        localStorage.setItem('round', newRound); 
+    }
+}
+
+//* Funcion para imprimir los rounds
+function showRounds () {
+    let actualRounds = localStorage.getItem('round', 0);
+    roundCounter.textContent = actualRounds;
+}
+
+//* Funcion para resetear los rounds del localStorage
+function resetRounds () {
+    localStorage.removeItem('round');
+    location.reload();
+    localStorage.setItem('round', 0);
+}
+
+//* Funcion para imprimir el jugador de turno
+function currentPlayer () {
+    let actualPlayer = JSON.parse(localStorage.getItem('usuarios'));
+    console.log(actualPlayer);
+
+    let actualRound = localStorage.getItem('round') - 1;
+    console.log(actualRound);
+    
+    if (actualRound < actualPlayer.length) {
+        console.log(`actualRound ${actualRound}`)
+        console.log(`actualPlayer.length ${actualPlayer.length}`)
+        let p = document.createElement('p');
+        p.textContent = actualPlayer[actualRound].name;
+        ActivePlayer.appendChild(p);
+
+    } else {
+        let newRound = localStorage.getItem('round');
+        newRound = 0;
+        let p = document.createElement('p');
+        p.textContent = actualPlayer[newRound].name;
+        ActivePlayer.appendChild(p);
+        newRound ++;
+        localStorage.setItem('round', newRound);
+    } 
+
+}
+
 //* Funcion para imprimir preguntas category 1
 function printCat1 () {
     roundBox.classList.toggle('roundBoxDisplay');
     roundNumber ()
+    currentPlayer ()
     console.log('entro funcion printCat1');
     
     let questionRandom = Math.floor(Math.random() * cat1.length);
@@ -216,41 +279,14 @@ function printCat4 () {
 
 }
 
-function roundNumber () {
-    
-    let newRound = localStorage.getItem('round');
-    if( newRound == null) {
-        round++;
-    console.log(round)
-    localStorage.setItem('round', round);
-    } else {
-        newRound ++;
-        console.log(newRound)
-        localStorage.setItem('round', newRound); 
-    }
-}
-
-function showRounds () {
-    let actualRounds = localStorage.getItem('round');
-    roundCounter.textContent = actualRounds;
-}
-
-
-function resetRounds () {
-    localStorage.removeItem('round');
-    location.reload();
-    localStorage.setItem('round', 0);
-}
-
-
 //* Funcion para recargar pagina y dejar el campo de pregunta vacio para que el usuario pueda elegir nuevamente una categoria
 function reloadPage() {
     location.reload();
 }
 
 //! =====EVENTOS=====
-//btnStart.addEventListener('click', loaderOn);
 btnAddFriends.addEventListener('click', addPlayer);
+btnClose.addEventListener('click', closeAddFriends);
 btnLoadPlayer.addEventListener('click', loadPlayer);
 reloadRounds.addEventListener('click', resetRounds);
 category1.addEventListener('click', printCat1);
