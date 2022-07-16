@@ -10,10 +10,13 @@ class Player {
 
 //! =====Selectores del DOM=====
 let btnAddFriends = document.querySelector('#btnAddFriends');
-let btnClose = document.querySelector('#close');
+let reloadRounds = document.querySelector('#reloadRounds');
 let playersAdded = document.querySelector('#playersAdded');
 let playerName = document.querySelector('.playerName');
 let ActivePlayer = document.querySelector('.ActivePlayer');
+let categoriesContainer = document.querySelector('#categoriesContainer');
+let btnShowCategories = document.querySelector('#btnShowCategories');
+let roundCounter = document.querySelector('#roundCounter');
 let category1 = document.querySelector('#category1');
 let category2 = document.querySelector('#category2');
 let category3 = document.querySelector('#category3');
@@ -28,9 +31,10 @@ let alertNextQuestion = document.querySelector('.alertNextQuestion');
 let btnStart = document.querySelector('#btnStart');
 let loader = document.querySelector('#loader');
 
-//! =====VARIABLES GLOBALES=====
+//! =====VARIABLES=====
 let nextQuestionValidation = true;
 let round = 0;
+let stateOfGame = false;
 
 //! =====ARRAYS=====
 const players = [];
@@ -41,53 +45,43 @@ const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 
 
 //! =====FUNCIONES=====
 
-
 //* Funcion para agregar jugadores
 function addPlayer (e) {
     //e.preventDefault();
     addPlayersContainer.classList.toggle('displayAddPlayerContainer');
     console.log('entro la funcion addPlayer')
     if (JSON.parse(localStorage.getItem('usuarios')) == null) {
-        playerNumer.textContent = `${players.length + 1}`;
+        playerNumer.textContent = players.length;
     } else {
         let playersNumbers = JSON.parse(localStorage.getItem('usuarios'));
         playerNumer.textContent = playersNumbers.length + 1;
     }
 }
 
-function close () {
-    addPlayersContainer.classList.toggle('displayAddPlayerContainer');
-}
-
 //* Funcion para cargar y guardar jugadores
 function loadPlayer () {
     let inputPlayerName = document.querySelector('#name').value;
-    
     let validacionLocalStorageJugadores = JSON.parse(localStorage.getItem('usuarios'));
-
-    if(validacionLocalStorageJugadores != null) {
+    if(validacionLocalStorageJugadores == null) {
+        console.log('players.length')
+        playerNumer.textContent = players.length;
+        let newPlayer = new Player(players.length, `${inputPlayerName} ⊗`);
+        players.push(newPlayer);
+        localStorage.setItem('usuarios', JSON.stringify(players));
+    } else {
         console.log('local with information')
         localStorage.clear();
         playerNumer.textContent = validacionLocalStorageJugadores.length + 1;
         let newPlayer = new Player(validacionLocalStorageJugadores.length, `${inputPlayerName} ⊗`);
         validacionLocalStorageJugadores.push(newPlayer);
         localStorage.setItem('usuarios', JSON.stringify(validacionLocalStorageJugadores));
-
-    } else {
-        console.log(`${players.length +1}`)
-        playerNumer.textContent = players.length + 1;
-        let newPlayer = new Player(players.length, `${inputPlayerName} ⊗`);
-        players.push(newPlayer);
-        localStorage.setItem('usuarios', JSON.stringify(players));
     }
-
     location.reload();
 }
 
 //* Funcion para imprimir jugadores cargados
 function printPlayers () {
     console.log('entro funcion printPlayers')
-    
     const activePlayers = JSON.parse(localStorage.getItem('usuarios'));
     console.log(activePlayers)
 
@@ -143,14 +137,8 @@ function printCat1 () {
     categorySelect.appendChild(pCat);
     questionBox.appendChild(p);
     questionBox.appendChild(nextQuestion);
+    
 
-    /*
-    if (nextQuestionValidation == true) {
-        nextQuestionValidation = false;
-    } else {
-        alertNextQuestion.classList.toggle('displayAlertNextQuestion');
-    }
-    */
 }
 
 //* Funcion para imprimir preguntas category 2
@@ -174,13 +162,7 @@ function printCat2 () {
         categorySelect.appendChild(pCat);
         questionBox.appendChild(p);
         questionBox.appendChild(nextQuestion);
-        /*
-    if (nextQuestionValidation == true) {
-        nextQuestionValidation = false;
-    } else {
-        alertNextQuestion.classList.toggle('displayAlertNextQuestion');
-    }
-    */
+
 }
 
 //* Funcion para imprimir preguntas category 3
@@ -204,13 +186,7 @@ function printCat3 () {
         categorySelect.appendChild(pCat);
         questionBox.appendChild(p);
         questionBox.appendChild(nextQuestion);
-    /*
-    if (nextQuestionValidation == true) {
-        nextQuestionValidation = false;
-    } else {
-        alertNextQuestion.classList.toggle('displayAlertNextQuestion');
-    }
-    */
+
 }
 
 //* Funcion para imprimir preguntas category 4
@@ -234,14 +210,48 @@ function printCat4 () {
         categorySelect.appendChild(pCat);
         questionBox.appendChild(p);
         questionBox.appendChild(nextQuestion);
-        /*
-    if (nextQuestionValidation == true) {
-        nextQuestionValidation = false;
-    } else {
-        alertNextQuestion.classList.toggle('displayAlertNextQuestion');  
-    }
-    */
+
 }
+
+
+
+function showCategories () {
+    categoriesContainer.classList.toggle('categoriesContainer');
+    roundNumber ();
+    btnShowCategories.classList.toggle('btnShowCategoriesOff');
+}
+
+function roundNumber () {
+    
+    let newRound = localStorage.getItem('round');
+
+    if( newRound == null) {
+        round++;
+    console.log(round)
+    localStorage.setItem('round', round);
+    
+    } else {
+        newRound ++;
+        console.log(newRound)
+        localStorage.setItem('round', newRound);
+        
+    }
+    
+
+}
+
+function showRounds () {
+    let actualRounds = localStorage.getItem('round');
+    roundCounter.textContent = actualRounds;
+}
+
+
+function resetRounds () {
+    localStorage.removeItem('round');
+    location.reload();
+    localStorage.setItem('round', 0);
+}
+
 
 //* Funcion para recargar pagina y dejar el campo de pregunta vacio para que el usuario pueda elegir nuevamente una categoria
 function reloadPage() {
@@ -249,14 +259,17 @@ function reloadPage() {
 }
 
 //! =====EVENTOS=====
-btnClose.addEventListener('click', close);
+//btnStart.addEventListener('click', loaderOn);
 btnAddFriends.addEventListener('click', addPlayer);
 btnLoadPlayer.addEventListener('click', loadPlayer);
+reloadRounds.addEventListener('click', resetRounds);
+btnShowCategories.addEventListener('click', showCategories);
 category1.addEventListener('click', printCat1);
 category2.addEventListener('click', printCat2);
 category3.addEventListener('click', printCat3);
 category4.addEventListener('click', printCat4);
-alertNextQuestion.addEventListener('click', reloadPage);
+alertNextQuestion.addEventListener('click', roundNumber);
 
 //! =====LOGICA=====
+showRounds ()
 printPlayers();

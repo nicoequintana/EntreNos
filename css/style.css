@@ -1,7 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    
 }
 
 *::selection{
@@ -32,6 +33,11 @@ img{
     border-radius: 10px;
     box-shadow: 2px 2px 10px black;
     border: 2px solid whitesmoke;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     position: relative;
 }
@@ -134,7 +140,14 @@ img{
 }
 
 /*! ===========button para sumar amigos a la partida============== */
-.addFriends{
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addFriends, .reloadRounds{
     width: 160px;
     height: 40px;
     padding: 0 15px;
@@ -173,6 +186,28 @@ img{
     color: white;
 }
 
+.reloadRounds {
+    width: 50px;
+    color: #fff;
+    background-color: rgb(104, 9, 9);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.roundCounter{
+    width: 45px;
+    height: 45px;
+    font-size: 2rem;
+    margin: 0 2rem;
+    background-color: rgba(134, 134, 134, 0.374);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+}
 /*! =========== FORMULARIO ADD PLAYER ============== */
 .addPlayersContainer{
     width: 100vw;
@@ -203,30 +238,6 @@ img{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.close{
-    margin-bottom: 4rem;
-    
-    font-weight: 900;
-    width: 25px;
-    height: 25px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all ease .3s;
-    cursor: pointer;
-}
-
-.close span {
-    font-size: 1rem;
-    color: #fff;
-}
-
-.close:hover{
-    background-color: #FF2525;
 }
 
 #playerNumber {
@@ -324,6 +335,30 @@ img{
 }
 
 /*! =================catergorias================= */
+.btnShowCategories{
+    width: 70%;
+    margin: 0 auto;
+    padding: 8px 5px;
+    background-color: rgba(58, 58, 58, 0.918);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    cursor: pointer;
+    color: white;
+    outline: 1px solid #fff;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.btnShowCategoriesOff{
+    display: none;
+}
+
+.categoriasContainerDisplayOff{
+    display: none;
+}
+
+
 .categoriesContainer{
     width: 100%;
     padding: 25px;
@@ -538,7 +573,6 @@ footer{
         width: 100%;
         padding:0;
         margin: 0;
-    
     }
     
     .categoryBox{
@@ -592,4 +626,5 @@ footer{
         cursor: pointer;
         transition: all ease-in-out .3s;
     }
+
 }

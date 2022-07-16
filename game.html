@@ -22,14 +22,22 @@
 
 
     <div class="gameContainer">
-        <button type="submit" class="addFriends" id="btnAddFriends">
-            <span>+</span>
-            <p>Agregar Amigos</p>
-        </button>
+        <header>
+            <button type="submit" class="addFriends" id="btnAddFriends">
+                <span>+</span>
+                <p>Agregar Amigos</p>
+            </button>
+
+            <span class="roundCounter" id="roundCounter"></span>
+
+            <button type="submit" class="reloadRounds" id="reloadRounds">R</button>
+        </header>
 
         <div class="players" id="playersAdded"></div>
 
-        <div class="categoriesContainer">
+        <!-- CATEGORIAS CONTAINER -->
+        <button class="btnShowCategories" id="btnShowCategories">Categorias</button>
+        <div class="categoriasContainerDisplayOff" id="categoriesContainer">
 
             <div class="categoryBox category1" id="category1" value="cat1">
                 <p>
@@ -66,9 +74,7 @@
     </div>
 
     <div class="addPlayersContainer">
-        
         <div class="addPlayersFormContainer">
-            <div class="close" id="close"><span>X</span></div>
             <span id="playerNumber"></span>
             <form action="" id="formAddPlayer" class="formAddPlayer">
                 <label for="name" class="labelName">A quien vas a cargar?</label>
@@ -96,7 +102,6 @@
             <strong>EntreNOS © 2022</strong>
         </p>
     </footer>
-
 
     <script src="./js/game.js"></script>
 </body>
