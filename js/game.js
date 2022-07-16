@@ -15,7 +15,6 @@ let playersAdded = document.querySelector('#playersAdded');
 let playerName = document.querySelector('.playerName');
 let ActivePlayer = document.querySelector('.ActivePlayer');
 let categoriesContainer = document.querySelector('#categoriesContainer');
-let btnShowCategories = document.querySelector('#btnShowCategories');
 let roundCounter = document.querySelector('#roundCounter');
 let category1 = document.querySelector('#category1');
 let category2 = document.querySelector('#category2');
@@ -118,6 +117,7 @@ function deletePlayer (id) {
 //* Funcion para imprimir preguntas category 1
 function printCat1 () {
     roundBox.classList.toggle('roundBoxDisplay');
+    roundNumber ()
     console.log('entro funcion printCat1');
     
     let questionRandom = Math.floor(Math.random() * cat1.length);
@@ -144,6 +144,7 @@ function printCat1 () {
 //* Funcion para imprimir preguntas category 2
 function printCat2 () {
     roundBox.classList.toggle('roundBoxDisplay');
+    roundNumber ()
     console.log('entro funcion printCat2');
         let questionRandom = Math.floor(Math.random() * cat2.length);
     
@@ -168,6 +169,7 @@ function printCat2 () {
 //* Funcion para imprimir preguntas category 3
 function printCat3 () {
     roundBox.classList.toggle('roundBoxDisplay');
+    roundNumber ()
     console.log('entro funcion printCat3');
         let questionRandom = Math.floor(Math.random() * cat3.length);
     
@@ -192,6 +194,7 @@ function printCat3 () {
 //* Funcion para imprimir preguntas category 4
 function printCat4 () {
     roundBox.classList.toggle('roundBoxDisplay');
+    roundNumber ()
     console.log('entro funcion printCat4');
         let questionRandom = Math.floor(Math.random() * cat4.length);
     
@@ -213,31 +216,18 @@ function printCat4 () {
 
 }
 
-
-
-function showCategories () {
-    categoriesContainer.classList.toggle('categoriesContainer');
-    roundNumber ();
-    btnShowCategories.classList.toggle('btnShowCategoriesOff');
-}
-
 function roundNumber () {
     
     let newRound = localStorage.getItem('round');
-
     if( newRound == null) {
         round++;
     console.log(round)
     localStorage.setItem('round', round);
-    
     } else {
         newRound ++;
         console.log(newRound)
-        localStorage.setItem('round', newRound);
-        
+        localStorage.setItem('round', newRound); 
     }
-    
-
 }
 
 function showRounds () {
@@ -263,7 +253,6 @@ function reloadPage() {
 btnAddFriends.addEventListener('click', addPlayer);
 btnLoadPlayer.addEventListener('click', loadPlayer);
 reloadRounds.addEventListener('click', resetRounds);
-btnShowCategories.addEventListener('click', showCategories);
 category1.addEventListener('click', printCat1);
 category2.addEventListener('click', printCat2);
 category3.addEventListener('click', printCat3);

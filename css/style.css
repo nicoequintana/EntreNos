@@ -335,24 +335,7 @@ header{
 }
 
 /*! =================catergorias================= */
-.btnShowCategories{
-    width: 70%;
-    margin: 0 auto;
-    padding: 8px 5px;
-    background-color: rgba(58, 58, 58, 0.918);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    cursor: pointer;
-    color: white;
-    outline: 1px solid #fff;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: none;
-}
 
-.btnShowCategoriesOff{
-    display: none;
-}
 
 .categoriasContainerDisplayOff{
     display: none;
