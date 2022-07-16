@@ -47,7 +47,7 @@ const cat4 = ['pregunta 1', 'pregunta 2', 'pregunta 3', 'pregunta 4', 'pregunta 
 //! =====FUNCIONES=====
 
 //* Funcion para agregar jugadores
-function addPlayer (e) {
+function addPlayer(e) {
     //e.preventDefault();
     addPlayersContainer.classList.toggle('displayAddPlayerContainer');
     console.log('entro la funcion addPlayer')
@@ -60,10 +60,10 @@ function addPlayer (e) {
 }
 
 //* Funcion para cargar y guardar jugadores
-function loadPlayer () {
+function loadPlayer() {
     let inputPlayerName = document.querySelector('#name').value;
     let validacionLocalStorageJugadores = JSON.parse(localStorage.getItem('usuarios'));
-    if(validacionLocalStorageJugadores == null) {
+    if (validacionLocalStorageJugadores == null) {
         console.log('players.length')
         playerNumer.textContent = players.length;
         let newPlayer = new Player(players.length, `${inputPlayerName} ⊗`);
@@ -81,12 +81,12 @@ function loadPlayer () {
 }
 
 //* Funcion del btn para cerrar addFriends
-function closeAddFriends () {
+function closeAddFriends() {
     addPlayersContainer.classList.toggle('displayAddPlayerContainer');
 }
 
 //* Funcion para imprimir jugadores cargados
-function printPlayers () {
+function printPlayers() {
     console.log('entro funcion printPlayers')
     const activePlayers = JSON.parse(localStorage.getItem('usuarios'));
     console.log(activePlayers)
@@ -99,7 +99,7 @@ function printPlayers () {
             p.textContent = e.name;
             playersAdded.appendChild(p);
 
-            
+
         });
 
 
@@ -111,7 +111,7 @@ function printPlayers () {
 }
 
 //* Funcion para eliminar un jugador cargado
-function deletePlayer (id) {
+function deletePlayer(id) {
     console.log('entro funcion deletePlayer')
 
     let eliminated = JSON.parse(localStorage.getItem('usuarios'));
@@ -122,41 +122,41 @@ function deletePlayer (id) {
 }
 
 //* Funcion para contar los rounds
-function roundNumber () {
-    
+function roundNumber() {
+
     let newRound = localStorage.getItem('round');
-    if( newRound == null) {
+    if (newRound == null) {
         round++;
-    console.log(round)
-    localStorage.setItem('round', round);
+        console.log(round)
+        localStorage.setItem('round', round);
     } else {
-        newRound ++;
+        newRound++;
         console.log(newRound)
-        localStorage.setItem('round', newRound); 
+        localStorage.setItem('round', newRound);
     }
 }
 
 //* Funcion para imprimir los rounds
-function showRounds () {
+function showRounds() {
     let actualRounds = localStorage.getItem('round', 0);
     roundCounter.textContent = actualRounds;
 }
 
 //* Funcion para resetear los rounds del localStorage
-function resetRounds () {
+function resetRounds() {
     localStorage.removeItem('round');
     location.reload();
     localStorage.setItem('round', 0);
 }
 
 //* Funcion para imprimir el jugador de turno
-function currentPlayer () {
+function currentPlayer() {
     let actualPlayer = JSON.parse(localStorage.getItem('usuarios'));
     console.log(actualPlayer);
 
     let actualRound = localStorage.getItem('round') - 1;
     console.log(actualRound);
-    
+
     if (actualRound < actualPlayer.length) {
         console.log(`actualRound ${actualRound}`)
         console.log(`actualPlayer.length ${actualPlayer.length}`)
@@ -170,24 +170,24 @@ function currentPlayer () {
         let p = document.createElement('p');
         p.textContent = actualPlayer[newRound].name;
         ActivePlayer.appendChild(p);
-        newRound ++;
+        newRound++;
         localStorage.setItem('round', newRound);
-    } 
+    }
 
 }
 
 //* Funcion para imprimir preguntas category 1
-function printCat1 () {
+function printCat1() {
     roundBox.classList.toggle('roundBoxDisplay');
-    roundNumber ()
-    currentPlayer ()
+    roundNumber()
+    currentPlayer()
     console.log('entro funcion printCat1');
-    
+
     let questionRandom = Math.floor(Math.random() * cat1.length);
-    
+
     let p = document.createElement('p');
     p.textContent = cat1[questionRandom];
-    
+
     let pCat = document.createElement('p');
     pCat.textContent = 'Categoria 1';
 
@@ -200,85 +200,85 @@ function printCat1 () {
     categorySelect.appendChild(pCat);
     questionBox.appendChild(p);
     questionBox.appendChild(nextQuestion);
-    
+
 
 }
 
 //* Funcion para imprimir preguntas category 2
-function printCat2 () {
+function printCat2() {
     roundBox.classList.toggle('roundBoxDisplay');
-    roundNumber ()
-    currentPlayer ()
+    roundNumber()
+    currentPlayer()
     console.log('entro funcion printCat2');
-        let questionRandom = Math.floor(Math.random() * cat2.length);
-    
-        let p = document.createElement('p');
-        p.textContent = cat2[questionRandom];
-        
-        let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 2';
-    
-        let nextQuestion = document.createElement('button');
-        nextQuestion.setAttribute('class', 'nextQuestion');
-        nextQuestion.setAttribute('type', 'submit');
-        nextQuestion.setAttribute('onClick', 'reloadPage()');
-        nextQuestion.textContent = 'Siguiente pregunta';
-    
-        categorySelect.appendChild(pCat);
-        questionBox.appendChild(p);
-        questionBox.appendChild(nextQuestion);
+    let questionRandom = Math.floor(Math.random() * cat2.length);
+
+    let p = document.createElement('p');
+    p.textContent = cat2[questionRandom];
+
+    let pCat = document.createElement('p');
+    pCat.textContent = 'Categoria 2';
+
+    let nextQuestion = document.createElement('button');
+    nextQuestion.setAttribute('class', 'nextQuestion');
+    nextQuestion.setAttribute('type', 'submit');
+    nextQuestion.setAttribute('onClick', 'reloadPage()');
+    nextQuestion.textContent = 'Siguiente pregunta';
+
+    categorySelect.appendChild(pCat);
+    questionBox.appendChild(p);
+    questionBox.appendChild(nextQuestion);
 
 }
 
 //* Funcion para imprimir preguntas category 3
-function printCat3 () {
+function printCat3() {
     roundBox.classList.toggle('roundBoxDisplay');
-    roundNumber ();
-    currentPlayer ();
+    roundNumber();
+    currentPlayer()
     console.log('entro funcion printCat3');
-        let questionRandom = Math.floor(Math.random() * cat3.length);
-    
-        let p = document.createElement('p');
-        p.textContent = cat3[questionRandom];
-        
-        let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 3';
-    
-        let nextQuestion = document.createElement('button');
-        nextQuestion.setAttribute('class', 'nextQuestion');
-        nextQuestion.setAttribute('type', 'submit');
-        nextQuestion.setAttribute('onClick', 'reloadPage()');
-        nextQuestion.textContent = 'Siguiente pregunta';
-    
-        categorySelect.appendChild(pCat);
-        questionBox.appendChild(p);
-        questionBox.appendChild(nextQuestion);
+    let questionRandom = Math.floor(Math.random() * cat3.length);
+
+    let p = document.createElement('p');
+    p.textContent = cat3[questionRandom];
+
+    let pCat = document.createElement('p');
+    pCat.textContent = 'Categoria 3';
+
+    let nextQuestion = document.createElement('button');
+    nextQuestion.setAttribute('class', 'nextQuestion');
+    nextQuestion.setAttribute('type', 'submit');
+    nextQuestion.setAttribute('onClick', 'reloadPage()');
+    nextQuestion.textContent = 'Siguiente pregunta';
+
+    categorySelect.appendChild(pCat);
+    questionBox.appendChild(p);
+    questionBox.appendChild(nextQuestion);
 
 }
 
 //* Funcion para imprimir preguntas category 4
-function printCat4 () {
+function printCat4() {
     roundBox.classList.toggle('roundBoxDisplay');
-    roundNumber ();
-    currentPlayer ();
+    roundNumber();
+    currentPlayer()
     console.log('entro funcion printCat4');
-        let questionRandom = Math.floor(Math.random() * cat4.length);
-    
-        let p = document.createElement('p');
-        p.textContent = cat4[questionRandom];
-        
-        let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 4';
-    
-        let nextQuestion = document.createElement('button');
-        nextQuestion.setAttribute('class', 'nextQuestion');
-        nextQuestion.setAttribute('type', 'submit');
-        nextQuestion.setAttribute('onClick', 'reloadPage()');
-        nextQuestion.textContent = 'Siguiente pregunta';
-    
-        categorySelect.appendChild(pCat);
-        questionBox.appendChild(p);
-        questionBox.appendChild(nextQuestion);
+    let questionRandom = Math.floor(Math.random() * cat4.length);
+
+    let p = document.createElement('p');
+    p.textContent = cat4[questionRandom];
+
+    let pCat = document.createElement('p');
+    pCat.textContent = 'Categoria 4';
+
+    let nextQuestion = document.createElement('button');
+    nextQuestion.setAttribute('class', 'nextQuestion');
+    nextQuestion.setAttribute('type', 'submit');
+    nextQuestion.setAttribute('onClick', 'reloadPage()');
+    nextQuestion.textContent = 'Siguiente pregunta';
+
+    categorySelect.appendChild(pCat);
+    questionBox.appendChild(p);
+    questionBox.appendChild(nextQuestion);
 
 }
 
@@ -299,5 +299,5 @@ category4.addEventListener('click', printCat4);
 alertNextQuestion.addEventListener('click', roundNumber);
 
 //! =====LOGICA=====
-showRounds ()
+showRounds()
 printPlayers();
