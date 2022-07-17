@@ -22,15 +22,28 @@
 <body>
     <div class="gameContainer">
         <header>
-            <button type="submit" class="addFriends" id="btnAddFriends">
-                <span>+</span>
-                <p>Agregar Amigos</p>
-            </button>
-            <span class="roundCounter" id="roundCounter"></span>
-            <button type="submit" class="reloadRounds" id="reloadRounds">R</button>
+            <div class="logoContainer">
+                <img src="./assets/logo/logo-EntreNOS-black.png" alt="">
+            </div>
+            <div class="infoHeader">
+                <button type="submit" class="addFriends" id="btnAddFriends">
+                    <span>+</span>
+                    <p>Agregar Amigos</p>
+                </button>
+                <span class="roundCounter" id="roundCounter"></span>
+                <button type="submit" class="reloadRounds" id="reloadRounds">R</button>
+            </div>
         </header>
 
         <div class="players" id="playersAdded"></div>
+
+        <div class="alertNotPlayerLoaddedDisplayOff alertNotPlayerLoadded" id="alertNotPlayerLoadded">
+            <p>
+                <span>😒</span>
+                Primero carga jugadores para comenzar la partida.
+            </p>  
+            <button type="submit" id="btnNotPlayerLoaddedClose">X</button>
+        </div>
 
         <!-- CATEGORIAS CONTAINER -->
         <div class="categoriesContainer" id="categoriesContainer">
@@ -73,9 +86,16 @@
                 <input type="text" id="name" class="inputName" placeholder="Nombre del Jugador">
             </form>
             <button type="submit" id="btnLoadPlayer">Cargar Jugador</button>
+            <div class="alertEmptyName alertEmptyNameDisplayOff" id="alertEmptyName">
+                <p>
+                    <span>😖</span> 
+                     El nombre del jugador no puede estar vacio
+                </p>
+            </div>
+            
         </div>
     </div>
-    
+
     <div class="roundBox">
         <div class="ActivePlayer"></div>
         <div class="categorySelect"></div>

@@ -161,6 +161,19 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+}
+.logoContainer{
+    width: 50%;
+
+    margin: .5rem auto 1.5rem auto;
+}
+
+.infoHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .addFriends, .reloadRounds{
@@ -246,7 +259,61 @@ header{
     align-items: center;
 }
 
-.btnClose{
+.alertEmptyName{
+    display: block;
+    width: 250px;
+    height: auto;
+    padding: 15px 8px;
+    margin: 1.5rem auto;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 2000;
+}
+
+.alertEmptyName P{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.alertEmptyName span {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.alertNotPlayerLoadded {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 15px 8px;
+    margin: 1.5rem auto;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alertNotPlayerLoadded p{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.alertNotPlayerLoadded span{
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
+    display: block;
+    text-align: center;
+}
+
+.alertEmptyNameDisplayOff, .alertNotPlayerLoaddedDisplayOff{
+    display: none;
+}
+
+.btnClose, #btnNotPlayerLoaddedClose{
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -259,6 +326,10 @@ header{
     -webkit-backdrop-filter: blur(8px);
     color: #fff;
     font-size: 1.2rem;
+}
+
+#btnNotPlayerLoaddedClose{
+    margin-top: 2.5rem;
 }
 
 .addPlayersFormContainer{
@@ -531,7 +602,7 @@ header{
     transition: all ease-in-out .3s;
 }
 
-.players, .categorySelect, .questionBox, .categoriesContainer, .addPlayersContainer, .alertNextQuestion{
+.players, .alertNotPlayerLoadded, .alertEmptyName, .categorySelect, .questionBox, .categoriesContainer, .addPlayersContainer, .alertNextQuestion{
     background-color: rgba(134, 134, 134, 0.238);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
