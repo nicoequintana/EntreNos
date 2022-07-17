@@ -13,6 +13,8 @@
         rel="stylesheet">
     <!-- NORMALIZE CSS -->
     <link rel="stylesheet" href="./css/normalize.css">
+    <!-- animate AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="icon" href="./assets/Favicon/favicon.ico">
     <!-- HOJA DE ESTILOS CSS -->
     <link rel="stylesheet" href="./css/style.css">
@@ -22,7 +24,7 @@
 <body>
     <div class="gameContainer">
         <header>
-            <div class="logoContainer">
+            <div class="logoContainer" data-aos="flip-left" data-aos-delay="50" data-aos-duration="1500">
                 <img src="./assets/logo/logo-EntreNOS.png" alt="">
             </div>
             <div class="infoHeader">
@@ -48,22 +50,22 @@
         <!-- CATEGORIAS CONTAINER -->
         <div class="categoriesContainer" id="categoriesContainer">
 
-            <div class="categoryBox category1" id="category1" value="cat1">
+            <div class="categoryBox category1" id="category1" value="cat1" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1200">
                 <p>
                     PRESENTACION
                 </p>
             </div>
-            <div class="categoryBox category2" id="category2" value="cat2">
+            <div class="categoryBox category2" id="category2" value="cat2" data-aos="zoom-in" data-aos-delay="700" data-aos-duration="1200">
                 <p>
                     PROFUNDIDAD
                 </p>
             </div>
-            <div class="categoryBox category3" id="category3" value="cat3">
+            <div class="categoryBox category3" id="category3" value="cat3" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1200">
                 <p>
                     DESCOMPRIMIR
                 </p>
             </div>
-            <div class="categoryBox category4" id="category4" value="cat4">
+            <div class="categoryBox category4" id="category4" value="cat4" data-aos="zoom-in" data-aos-delay="900" data-aos-duration="1200">
                 <p>
                     PERSPECTIVA
                 </p>
@@ -111,6 +113,10 @@
         </p>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="./js/game.js"></script>
 </body>
 
