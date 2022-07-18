@@ -143,6 +143,7 @@ img{
     margin: 1rem auto;
     border: none;
     outline: 1px solid #fff;
+    -webkit-outline: 1px solid #fff;
     border-radius: 5px;
     background-color: #f84cbca1;
     font-size: 1.2rem;
@@ -292,6 +293,7 @@ header{
     justify-content: center;
     border-radius: 50%;
     outline: 2px solid #FFF;
+    -webkit-outline: 2px solid #FFF;
 }
 /*! =========== FORMULARIO ADD PLAYER ============== */
 .addPlayersContainer{
@@ -372,6 +374,7 @@ header{
     height: 25px;
     border-radius: 50%;
     outline: 1px solid #fff;
+    -webkit-outline: 1px solid #fff;
     border: none;
     cursor: pointer;
     margin-bottom: 2.5rem;
@@ -444,6 +447,7 @@ header{
 
 .inputName:focus{
     outline: 1.5px solid whitesmoke;
+    -webkit-outline: 1.5px solid whitesmoke;
     box-shadow: 0 0 15px whitesmoke;
 }
 
@@ -457,6 +461,7 @@ header{
     font-size: 1.5rem;
     cursor: pointer;
     outline: 1.5px solid whitesmoke;
+    -webkit-outline: 1.5px solid whitesmoke;
     transition: all ease-in-out .3s;
 }
 
@@ -752,6 +757,7 @@ footer{
         transform: translateY(-15px) rotateZ(5deg);
         box-shadow: 0px 10px 15px rgb(44, 44, 44);
         outline: 3px solid whitesmoke;
+        -webkit-outline: 3px solid whitesmoke;
     }
 
     .nextQuestion:focus {
