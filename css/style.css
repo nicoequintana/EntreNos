@@ -27,8 +27,8 @@ img{
     height: 100%;
     margin: 1.5rem auto 2rem auto;
     padding: 15px;
-    background-image: url(../assets/bg-dark.png);
-    background-size: cover;
+    background-image: url(../assets/Background/pexels-andre-moura-2523959.jpg);
+    background-size: contain;
     background-position: bottom center;
     background-attachment: fixed;
     border-radius: 10px;
@@ -517,7 +517,6 @@ header{
     min-width: 155px;
     max-width: 210px;
     margin: 10px;
-    padding: 0 15px 10px 15px;
     height:250px;
     border-radius: 5px;
     cursor: pointer;
@@ -540,16 +539,16 @@ header{
 
 .categoryBox p{
     width: 100%;
-    padding: 5px;
+    padding: 10px 5px;
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
     color: rgb(255, 255, 255);
     font-size: 2rem;
-    background: #f84cbc47;
+    background: #2f2f2f84;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     z-index: 100;
 }
 
@@ -813,6 +812,14 @@ footer{
         margin: 5px;
 
     }
+
+    .addFriends p{
+        font-size: 1rem;
+        text-align: right;
+        font-weight: 900;
+        color: white;
+    }
+
 /*! =================Boton next question================= */
     .nextQuestion{
         width: 100%;
