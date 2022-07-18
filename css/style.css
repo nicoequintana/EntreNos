@@ -25,7 +25,7 @@ img{
 .gameContainer{
     width: 90%;
     margin: 2rem auto;
-    padding: 20px 20px 200px;
+    padding: 20px;
     background-image: url(../assets/bg-dark.png);
     background-size: cover;
     background-position: bottom center;
@@ -503,7 +503,7 @@ header{
 .categoriesContainer{
     width: 100%;
     padding: 25px;
-    margin: 2rem auto;
+    margin: 2rem auto 15rem;
     border-radius: 5px;
     display: flex;
     justify-content: center;
