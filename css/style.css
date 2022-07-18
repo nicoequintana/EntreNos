@@ -24,8 +24,9 @@ img{
 
 .gameContainer{
     width: 90%;
-    margin: 2rem auto;
-    padding: 20px;
+    height: 100%;
+    margin: 1.5rem auto 2rem auto;
+    padding: 15px;
     background-image: url(../assets/bg-dark.png);
     background-size: cover;
     background-position: bottom center;
@@ -45,15 +46,10 @@ img{
 /*! ===========LOADER CON PRESENTACION DEL JUEGO============== */
 
 .loaderDisplay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 50px;
+    padding: 20px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.911);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: (blur(10px));
+    background-color: rgb(0, 0, 0);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -66,7 +62,7 @@ img{
 }
 
 .logoContainer{
-    width: 50%;
+    width: 40%;
     max-width: 500px;
     min-width: 251px;
     height: auto;
@@ -82,7 +78,7 @@ img{
     /*background-color: red;*/
     width: 100%;
     height: auto;
-    margin: 2rem auto 4rem auto;
+    margin: 1rem auto 4rem auto;
     padding: 5px 10px;
     text-align: center;
     position: relative;
@@ -120,13 +116,18 @@ img{
 .rulesContainer{
     /*background-color: blue;*/
     width: 80%;
+    height: auto;
     max-width: 500px;
     margin: 1.5rem auto;
     padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .rulesContainer p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
     text-align: justify;
 }
@@ -138,13 +139,13 @@ img{
 
 .btnStart, .nextToGame{
     width: 100%;
-    padding: 15px 5px;
-    margin: 1.5rem auto;
+    padding: 5px;
+    margin: 1rem auto;
     border: none;
     outline: 1px solid #fff;
     border-radius: 5px;
     background-color: #f84cbca1;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
@@ -717,11 +718,9 @@ header{
 /*! =========== FOOTER Y COPYRIGHT ============== */
 footer{
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     height: auto;
-    background-color: rgba(0, 0, 0, 0.733);
+    background-color: rgb(0, 0, 0);
+    margin: 1rem auto 0 auto;
     padding: 10px;
     text-align: center;
     display: flex;
@@ -779,7 +778,7 @@ footer{
     
     .categoryBox{
         width: 40%;
-        min-width: 115px;
+        min-width: 100px;
         max-width: 180px;
         margin: 10px;
         height: 100px;
