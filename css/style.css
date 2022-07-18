@@ -25,7 +25,7 @@ img{
 .gameContainer{
     width: 90%;
     margin: 2rem auto;
-    padding: 20px;
+    padding: 20px 20px 120px;
     background-image: url(../assets/bg-dark.png);
     background-size: cover;
     background-position: bottom center;
@@ -717,10 +717,17 @@ header{
 /*! =========== FOOTER Y COPYRIGHT ============== */
 footer{
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     height: auto;
-    background-color: rgba(66, 66, 66, 0.411);
+    background-color: rgba(0, 0, 0, 0.733);
     padding: 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -821,7 +828,5 @@ footer{
         cursor: pointer;
         transition: all ease-in-out .3s;
     }
-
-/*! ================= PREGAME ================= */
 
 }
