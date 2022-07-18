@@ -4,7 +4,7 @@ let loader = document.querySelector('#loader');
 
 function startGame() {
     console.log('entro funcion startGame')
-    location.href = 'game.html';
+    location.href = 'pregame.html';
 }
 
 

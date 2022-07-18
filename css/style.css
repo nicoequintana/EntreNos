@@ -26,7 +26,7 @@ img{
     width: 90%;
     margin: 2rem auto;
     padding: 20px;
-    background-image: url(../assets//bg-dark.png);
+    background-image: url(../assets/bgGame-EntreNOS-05.svg);
     background-size: cover;
     background-position: bottom center;
     background-attachment: fixed;
@@ -136,9 +136,10 @@ img{
     margin: 2rem auto;
 }
 
-.btnStart{
+.btnStart, .nextToGame{
     width: 100%;
     padding: 15px 5px;
+    margin: 1.5rem auto;
     border: none;
     outline: 1px solid #fff;
     border-radius: 5px;
@@ -153,6 +154,53 @@ img{
 .btnStart:hover{
     background-color: #F84CBC;
     box-shadow: 0 0 15px #F84CBC;
+}
+
+/*! =========== PREGAME ============== */
+.preGame{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cafecitoContainer{
+    width: 50%;
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    background-color: #9f2f7859;
+
+}
+
+.cafecitoContainer p {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cafecito{
+    width: 60%;
+    min-width: 150px;
+    margin: 0 auto;
+}
+
+.nextToGameDisplayOff{
+    display: none;
+}
+
+.nextToGame{
+    width: 60%;
+    min-width: 150px;
+    display: block;
+    margin: 1.5rem auto 0 auto;
 }
 
 /*! ===========HEADER PANTALLA JUEGO============== */
@@ -506,8 +554,8 @@ header{
 }
 
 .category2{
-    background: rgb(221,255,122);
-    background: radial-gradient(circle, rgba(221,255,122,1) 0%, rgba(76,248,78,1) 82%);
+    background: rgb(101,227,117);
+    background: radial-gradient(circle, rgba(101,227,117,1) 0%, rgba(39,135,43,1) 82%);
 }
 
 .category3{
@@ -625,6 +673,21 @@ header{
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 2px solid whitesmoke;
+}
+
+.cafecitoGame{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cafecitoGame a {
+    margin: 1rem;
+}
+
+.cafecitoGame span{
+    font-size: 2rem;
 }
 
 /*! === ALERT NEXT QUESTION ===  */
@@ -754,5 +817,7 @@ footer{
         cursor: pointer;
         transition: all ease-in-out .3s;
     }
+
+/*! ================= PREGAME ================= */
 
 }
