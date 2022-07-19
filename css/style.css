@@ -964,6 +964,10 @@ footer{
         color: white;
     }
 
+    .questionBox{
+        width: 80%;
+    }
+
 /*! =================Boton next question================= */
     .nextQuestion{
         width: 100%;
@@ -971,7 +975,7 @@ footer{
         text-align: center;
         font-weight: 600;
         border: 1px solid whitesmoke;
-        padding: 8px;
+        padding: 4px;
         border-radius: 5px;
         background-color: #601144;
         color: white;

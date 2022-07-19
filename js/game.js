@@ -322,7 +322,7 @@ function printCat1() {
         p.textContent = cat1[questionRandom];
 
         let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 1';
+        pCat.textContent = 'SOBRE VOS';
 
         let nextQuestion = document.createElement('button');
         nextQuestion.setAttribute('class', 'nextQuestion');
@@ -352,7 +352,7 @@ function printCat2() {
         p.textContent = cat2[questionRandom];
 
         let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 2';
+        pCat.textContent = '¡QUE PROFUNDO!';
 
         let nextQuestion = document.createElement('button');
         nextQuestion.setAttribute('class', 'nextQuestion');
@@ -382,7 +382,7 @@ function printCat3() {
         p.textContent = cat3[questionRandom];
 
         let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 3';
+        pCat.textContent = 'RELAJEMOS';
 
         let nextQuestion = document.createElement('button');
         nextQuestion.setAttribute('class', 'nextQuestion');
@@ -412,7 +412,7 @@ function printCat4() {
         p.textContent = cat4[questionRandom];
 
         let pCat = document.createElement('p');
-        pCat.textContent = 'Categoria 4';
+        pCat.textContent = 'VISIÓN';
 
         let nextQuestion = document.createElement('button');
         nextQuestion.setAttribute('class', 'nextQuestion');
