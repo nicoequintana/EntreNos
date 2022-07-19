@@ -1,5 +1,11 @@
 'use strict';
 
+window.onload = function () {
+    spinner.classList.toggle('spinnerOff');  
+    showRounds()
+    printPlayers();
+}
+
 //! =====CLASES=====
 class Player {
     constructor(id, name) {
@@ -9,6 +15,7 @@ class Player {
 }
 
 //! =====Selectores del DOM=====
+let spinner = document.querySelector('.spinnerContainer');
 let btnAddFriends = document.querySelector('#btnAddFriends');
 let reloadRounds = document.querySelector('#reloadRounds');
 let btnClose = document.querySelector('#btnClose');
@@ -436,6 +443,4 @@ category3.addEventListener('click', printCat3);
 category4.addEventListener('click', printCat4);
 alertNextQuestion.addEventListener('click', roundNumber);
 
-//! =====LOGICA=====
-showRounds()
-printPlayers();
+

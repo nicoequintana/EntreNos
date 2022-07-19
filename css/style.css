@@ -43,6 +43,95 @@ img{
     position: relative;
 }
 
+/*! ===========SPINNER============== */
+.spinnerContainer{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300000;
+}
+
+.spinnerOff{
+    display: none;
+  }
+
+.spinner {
+    width: 6em;
+    height: 6em;
+    font-size: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spinner .face {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate023845 3s linear infinite;
+  }
+  
+  .spinner .face:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    color: rgb(224, 56, 182);
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+  }
+  
+  .spinner .face:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    color: rgb(48, 68, 222);
+    border-color: currentColor currentColor transparent transparent;
+    border-width: 0.2em 0em 0em 0.2em;
+    --deg: -135deg;
+    animation-direction: reverse;
+  }
+  
+  .spinner .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+  }
+  
+  .spinner .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+                  0 0 4em,
+                  0 0 6em,
+                  0 0 8em,
+                  0 0 10em,
+                  0 0 0 0.5em rgba(255, 255, 0, 0.1);
+  }
+  
+  @keyframes animate023845 {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
 /*! ===========LOADER CON PRESENTACION DEL JUEGO============== */
 
 .loaderDisplay{
@@ -137,13 +226,64 @@ img{
     margin: 2rem auto;
 }
 
+/* From uiverse.io */
+.btnStart, .nextToGame {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: #b12780a1;
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: #aa3180a1;
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+   }
+   
+   .btnStart::after, .nextToGame::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   .btnStart:hover, .nextToGame:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   .btnStart:active, .nextToGame:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+/*
 .btnStart, .nextToGame{
     width: 100%;
     padding: 10px;
     margin: 1rem auto;
     border: none;
-    outline: 1px solid #fff;
-    -webkit-outline: 1px solid #fff;
+    border: 1px solid #fff;
     border-radius: 5px;
     background-color: #f84cbca1;
     font-size: 1.2rem;
@@ -157,7 +297,7 @@ img{
     background-color: #F84CBC;
     box-shadow: 0 0 15px #F84CBC;
 }
-
+*/
 /*! =========== PREGAME ============== */
 .preGame{
     width: 100%;
@@ -292,8 +432,7 @@ header{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    outline: 2px solid #FFF;
-    -webkit-outline: 2px solid #FFF;
+    border: 2px solid #FFF;
 }
 /*! =========== FORMULARIO ADD PLAYER ============== */
 .addPlayersContainer{
@@ -373,9 +512,7 @@ header{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    outline: 1px solid #fff;
-    -webkit-outline: 1px solid #fff;
-    border: none;
+    border: 1px solid #fff;
     cursor: pointer;
     margin-bottom: 2.5rem;
     background-color: rgba(225, 23, 23, 0.568);
@@ -446,8 +583,7 @@ header{
 }
 
 .inputName:focus{
-    outline: 1.5px solid whitesmoke;
-    -webkit-outline: 1.5px solid whitesmoke;
+    border: 1.5px solid whitesmoke;
     box-shadow: 0 0 15px whitesmoke;
 }
 
@@ -460,8 +596,7 @@ header{
     color: rgb(255, 255, 255);
     font-size: 1.5rem;
     cursor: pointer;
-    outline: 1.5px solid whitesmoke;
-    -webkit-outline: 1.5px solid whitesmoke;
+    border: 1.5px solid whitesmoke;
     transition: all ease-in-out .3s;
 }
 
@@ -738,26 +873,25 @@ footer{
 
 @media only screen and (min-width: 768px) {
     .addFriends:hover {
-        background-color: rgba(29, 26, 208, 0.418);
+        background-color: #f84cbca1;
     }
     
     .addFriends:hover span {
-        background-color: rgba(29, 26, 208, 0.626);
-        color: rgb(143, 218, 255);
+        background-color: #f84cbcea;
+        color: rgb(82, 7, 67);
     }
 
     .playerName:hover{
-        background-color: #0515f26e;
-        color: white;
-        box-shadow: -8px 8px 10px rgb(75, 75, 75);
+        background-color: #ff00a6;
+        color: rgb(125, 11, 102);
+        box-shadow: -5px 5px 10px rgb(246, 101, 210);
         transform: scale(1.08) translate(2px, -2px);
     }
  
     .categoryBox:hover{
         transform: translateY(-15px) rotateZ(5deg);
         box-shadow: 0px 10px 15px rgb(44, 44, 44);
-        outline: 3px solid whitesmoke;
-        -webkit-outline: 3px solid whitesmoke;
+        border: 3px solid whitesmoke;
     }
 
     .nextQuestion:focus {
