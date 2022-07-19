@@ -740,6 +740,10 @@ header{
     flex-direction: column;
 }
 
+.roundBox img {
+    width: 100px;
+}
+
 .ActivePlayer{
     width: 70%;
     margin: 0 auto;
