@@ -32,6 +32,7 @@ let category2 = document.querySelector('#category2');
 let category3 = document.querySelector('#category3');
 let category4 = document.querySelector('#category4');
 let roundBox = document.querySelector('.roundBox');
+let btnCloseRoundBox = document.querySelector('#btnCloseRoundBox');
 let questionBox = document.querySelector('.questionBox');
 let categorySelect = document.querySelector('.categorySelect');
 let addPlayersContainer = document.querySelector('.addPlayersContainer');
@@ -434,6 +435,7 @@ function reloadPage() {
 //! =====EVENTOS=====
 btnAddFriends.addEventListener('click', addPlayer);
 btnClose.addEventListener('click', closeAddFriends);
+btnCloseRoundBox.addEventListener('click', () => { roundBox.classList.toggle('roundBoxDisplay'); reloadPage() });
 btnNotPlayerLoaddedClose.addEventListener('click', closeAlertNotPlayerLoadded);
 btnLoadPlayer.addEventListener('click', loadPlayer);
 reloadRounds.addEventListener('click', resetRounds);
